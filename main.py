@@ -21,7 +21,7 @@ def main():
             continue
 
         if user_input == commands.REMOVE_CONTACT:
-            remove_contact()
+            remove_contact(book)
             continue
 
         if user_input == commands.EDIT_CONTACT:
