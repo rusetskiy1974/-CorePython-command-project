@@ -12,25 +12,49 @@ from storages.storage import Storage
 FIELDS_CLASS = {'birthday': Date, 'email': Mail, 'address': Address, 'phone': Phone, 'name': Name}
 
 def edit_contact(book: AddressBook, storage: Type[Storage]):
-    name = input_value('name', Name)
-    record = book.find(str(name))
     while True:
-        field = input(f'Input field for change, n- end :')
-        if field != 'n':
+        name = input_value('name', Name)
+        record = book.find(str(name))
+        if record:
+            break
+        else:
+            print('Input correct name')
+
+    while True:
+        field = input(f'Input field for change, c - end :')
+        if field != 'c':
             if field in FIELDS_CLASS.keys():
                 volume = input_value(field, FIELDS_CLASS[field])
-                if field == 'date birthday':
+                if field == 'birthday':
                     record.edit_birthday(volume)
                 elif field == 'email':
                     record.edit_email(volume)
                 elif field == 'address':
                     record.edit_address(volume)
                 elif field == 'name':
-                    record.edit_name(volume)               
-                     
-                print(f'Field {field} changed')
+                    record.edit_name(volume)
+                elif field == 'phone':
+                    while True:
+                        phone_action = input(f'remove/edit/add :')
+                        if phone_action == 'remove':
+                            record.remove_phone(volume)
+                            break
+                        elif phone_action == 'add':
+                            record.add_phone(volume)
+                            break
+                        elif phone_action == 'edit':                 
+                            old_phone = input_value('old phone number', Phone)
+                            record.edit_phone(str(old_phone), str(volume)) 
+                            break
+                        print('Incorrect value')
+
+
+                print(f'Fields  {field} changed')
+            else:
+                print('Incorrect value')  
+                 
         else:
-                break
+            break
        
-        print(f'Contact {name} changed')
-        storage.update(book.data.values())
+    print(f'Contact {name} changed')
+    storage.update(book.data.values())
