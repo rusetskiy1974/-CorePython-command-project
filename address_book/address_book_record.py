@@ -36,7 +36,29 @@ class AddressBookRecord:
         self.phones[idx].value = new_phone
 
         return self.phones
+    
+    def edit_name(self, new_name: Name):
+        self.name = new_name
 
+        return self.name
+    
+    def edit_birthday(self, new_birthday: Date):
+        self.birthday = new_birthday
+
+        return self.birthday
+
+    def edit_email(self, new_email: Mail):
+        self.mail = new_email
+
+        return self.mail
+    
+    def edit_address(self, new_address: Address):
+        self.address = new_address
+
+        return self.address
+    
+
+         
     def find_phone(self, phone: str):
         for current_phone in self.phones:
             if current_phone.value == phone:

@@ -34,7 +34,7 @@ def main():
             continue
 
         if user_input == commands.EDIT_CONTACT:
-            edit_contact()
+            edit_contact(book, address_book_storage)
             continue
 
         if user_input == commands.FIND_CONTACT:

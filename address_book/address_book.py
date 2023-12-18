@@ -63,7 +63,7 @@ class AddressBook(UserDict):
             lambda record:  AddressBookRecord.days_to_birthday(record) <= value,
             self.data.values()
         ))
-         
-
+    
+    
 
 address_book = AddressBook()
