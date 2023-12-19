@@ -1,13 +1,13 @@
 from typing import Type
 
-from address_book.address_book import AddressBook
-from class_fields.name import Name
-from class_fields.phone import Phone
-from class_fields.date import Date
-from class_fields.address import Address
-from class_fields.mail import Mail
-from handlers.address_book.add_contact import input_value
-from storages.storage import Storage
+from user_assistant.address_book.address_book import AddressBook
+from user_assistant.class_fields.name import Name
+from user_assistant.class_fields.phone import Phone
+from user_assistant.class_fields.date import Date
+from user_assistant.class_fields.address import Address
+from user_assistant.class_fields.mail import Mail
+from user_assistant.handlers.address_book.add_contact import input_value
+from user_assistant.storages.storage import Storage
 
 FIELDS_CLASS = {'name': Name, 'birthday': Date, 'email': Mail, 'address': Address, 'phone': Phone}
 
