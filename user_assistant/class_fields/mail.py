@@ -1,6 +1,7 @@
 import re
 from .field import Field
 
+
 class Mail(Field):
     @staticmethod
     def validate(value):

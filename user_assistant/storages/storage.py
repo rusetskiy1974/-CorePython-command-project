@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from serializers.serializer import Serializer
+from user_assistant.serializers.serializer import Serializer
 
 
 class Storage(ABC):

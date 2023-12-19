@@ -1,10 +1,10 @@
-from serializers.serializer import Serializer
-from address_book.address_book_record import AddressBookRecord
-from class_fields.name import Name
-from class_fields.date import Date
-from class_fields.phone import Phone
-from class_fields.mail import Mail
-from class_fields.address import Address
+from user_assistant.serializers.serializer import Serializer
+from user_assistant.address_book.address_book_record import AddressBookRecord
+from user_assistant.class_fields.name import Name
+from user_assistant.class_fields.date import Date
+from user_assistant.class_fields.phone import Phone
+from user_assistant.class_fields.mail import Mail
+from user_assistant.class_fields.address import Address
 
 
 class AddressBookCSVSerializer(Serializer):

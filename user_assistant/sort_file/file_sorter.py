@@ -1,7 +1,8 @@
 from pathlib import Path
 import shutil
-from sort_file.normalize import normalize
-import sort_file.file_parser as parser
+
+from .normalize import normalize
+import user_assistant.sort_file.file_parser as parser
 
 
 class FileSorter:

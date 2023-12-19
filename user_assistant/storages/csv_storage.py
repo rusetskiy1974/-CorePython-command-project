@@ -1,9 +1,9 @@
 from csv import DictReader, DictWriter
 from pathlib import Path
+from typing import Type
 
 from .storage import Storage
-from serializers.serializer import Serializer
-from typing import Type
+from user_assistant.serializers.serializer import Serializer
 
 
 class CSVStorage(Storage):

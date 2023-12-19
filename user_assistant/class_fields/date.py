@@ -1,7 +1,7 @@
-from .field import Field
-import re
 from datetime import datetime
-from validations import date_validation
+
+from .field import Field
+from user_assistant.validations import date_validation
 
 class Date(Field):
     DATE_FORMAT = '%d.%m.%Y'

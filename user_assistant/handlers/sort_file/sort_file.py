@@ -1,5 +1,5 @@
 from pathlib import Path
-from sort_file.file_sorter import FileSorter
+from user_assistant.sort_file.file_sorter import FileSorter
 
 
 def sort_files():

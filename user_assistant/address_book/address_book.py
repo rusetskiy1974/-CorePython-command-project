@@ -1,10 +1,6 @@
 from collections import UserDict
 from .address_book_record import AddressBookRecord
 from pathlib import Path
-from storages.storage import Storage
-from storages.csv_storage import CSVStorage
-from serializers.address_book.address_book_csv_serializer import AddressBookCSVSerializer
-from datetime import date
 
 CSV_STORAGE_PATH = Path('databases', 'address_book.csv')
 FIELD_NAMES = ['name', 'birthday', 'phones']
