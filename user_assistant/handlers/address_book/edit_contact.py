@@ -23,15 +23,15 @@ def edit_contact(book: AddressBook, storage: Type[Storage]):
     for field in FIELDS_CLASS.keys():  
         if input(f'Chang {field} Y/y :') in ['Y','y']:  
             volume = input_value(f'new {field}', FIELDS_CLASS[field])
-            if field == 'birthday' and volume:
+            if field == 'birthday':
                 record.edit_birthday(volume)
-            elif field == 'email' and volume:
+            elif field == 'email':
                 record.edit_email(volume)
-            elif field == 'address' and volume:
+            elif field == 'address':
                 record.edit_address(volume)
-            elif field == 'name' and volume:
+            elif field == 'name':
                 record.edit_name(volume)
-            elif field == 'phone' and volume:
+            elif field == 'phone':
                 while True:
                     phone_action = input(f'remove(r)/edit(e)/add(a) :')
                     if phone_action == 'r':
