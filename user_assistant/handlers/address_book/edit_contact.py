@@ -13,7 +13,7 @@ FIELDS_CLASS = {'name': Name, 'birthday': Date, 'email': Mail, 'address': Addres
 
 def edit_contact(book: AddressBook, storage: Type[Storage]):
     while True:
-        name = input_value('name', Name)
+        name = Name(input(f'Enter contact name: '))
         record = book.find(str(name))
         if record:
             break
