@@ -43,6 +43,26 @@ class AddressBookRecord:
                 return current_phone
 
         return None
+    
+    def edit_name(self, new_name: Name):
+        self.name = new_name
+
+        return self.name
+    
+    def edit_birthday(self, new_birthday: Date):
+        self.birthday = new_birthday
+
+        return self.birthday
+
+    def edit_email(self, new_email: Mail):
+        self.mail = new_email
+
+        return self.mail
+    
+    def edit_address(self, new_address: Address):
+        self.address = new_address
+
+        return self.address
 
     def days_to_birthday(self):
         today = date.today()
