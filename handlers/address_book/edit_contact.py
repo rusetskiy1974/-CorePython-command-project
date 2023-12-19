@@ -9,7 +9,7 @@ from class_fields.mail import Mail
 from handlers.address_book.add_contact import input_value
 from storages.storage import Storage
 
-FIELDS_CLASS = {'birthday': Date, 'email': Mail, 'address': Address, 'phone': Phone, 'name': Name}
+FIELDS_CLASS = {'name': Name, 'birthday': Date, 'email': Mail, 'address': Address, 'phone': Phone}
 
 def edit_contact(book: AddressBook, storage: Type[Storage]):
     while True:
@@ -20,41 +20,31 @@ def edit_contact(book: AddressBook, storage: Type[Storage]):
         else:
             print('Input correct name')
 
-    while True:
-        field = input(f'Input field for change, c - end :')
-        if field != 'c':
-            if field in FIELDS_CLASS.keys():
-                volume = input_value(field, FIELDS_CLASS[field])
-                if field == 'birthday':
-                    record.edit_birthday(volume)
-                elif field == 'email':
-                    record.edit_email(volume)
-                elif field == 'address':
-                    record.edit_address(volume)
-                elif field == 'name':
-                    record.edit_name(volume)
-                elif field == 'phone':
-                    while True:
-                        phone_action = input(f'remove/edit/add :')
-                        if phone_action == 'remove':
-                            record.remove_phone(volume)
-                            break
-                        elif phone_action == 'add':
-                            record.add_phone(volume)
-                            break
-                        elif phone_action == 'edit':                 
-                            old_phone = input_value('old phone number', Phone)
-                            record.edit_phone(str(old_phone), str(volume)) 
-                            break
-                        print('Incorrect value')
-
-
-                print(f'Fields  {field} changed')
-            else:
-                print('Incorrect value')  
-                 
-        else:
-            break
-       
+    for field in FIELDS_CLASS.keys():  
+        if input(f'Chang {field} Y/y :') in ['Y','y']:  
+            volume = input_value(f'new {field}', FIELDS_CLASS[field])
+            if field == 'birthday' and volume:
+                record.edit_birthday(volume)
+            elif field == 'email' and volume:
+                record.edit_email(volume)
+            elif field == 'address' and volume:
+                record.edit_address(volume)
+            elif field == 'name' and volume:
+                record.edit_name(volume)
+            elif field == 'phone' and volume:
+                while True:
+                    phone_action = input(f'remove(r)/edit(e)/add(a) :')
+                    if phone_action == 'r':
+                        record.remove_phone(volume)
+                        break
+                    elif phone_action == 'a':
+                        record.add_phone(volume)
+                        break
+                    elif phone_action == 'e':                 
+                        old_phone = input_value('old phone number', Phone)
+                        record.edit_phone(str(old_phone), str(volume)) 
+                        break
+                    print('Incorrect value')
+      
     print(f'Contact {name} changed')
     storage.update(book.data.values())
